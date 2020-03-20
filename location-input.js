@@ -65,7 +65,7 @@ getCityData = (city, state, country) => {
 
     console.log(`${url}${city}%2C+${state}%2C+${country}`);
     axios.get(`${url}${city}%2C+${state}%2C+${country}`)
-        .then(res => console.log(res.data))
+        .then(res => console.log(`Data is here: ${res}`))
         .catch(err => console.error(err))
 
 /*     try {
