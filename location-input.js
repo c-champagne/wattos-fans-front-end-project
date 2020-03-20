@@ -47,12 +47,12 @@ getCityData = (city, state, country) => {
     console.log(`${url}${city}%2C+${state}%2C+${country}`);
 
     axios.get(`${url}${city}%2C+${state}%2C+${country}`)
-        .then(function(response){
+        .then(function(response) {
             console.log(response.data);
         })
-        .catch(function(error){
+        .catch(function(error) {
             console.error(error);
-         })
+        })
 }
 
 getCityData(city, state, country);
