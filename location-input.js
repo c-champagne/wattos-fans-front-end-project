@@ -30,7 +30,7 @@
 */
 
 // Pulling in axios
-const axios = require('axios');
+//const axios = require('axios');
 
 // Declare API key and url for query
 // *key will eventually need to be stored in safer place since this is a public repo*
