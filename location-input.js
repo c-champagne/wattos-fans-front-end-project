@@ -71,7 +71,7 @@ getCityData = (city, state, country) => {
             console.log(response.data.results);
             cityData = JSON.stringify(response.data.results);
         })
-        .catch(function(error){
+        .catch(function(error) {
             console.error(error);
          })
     return cityData;
