@@ -1,9 +1,10 @@
 .jumbotron {
-    background-image: url(/images/starbackground.jpg);
     margin-bottom: 0px;
     color: white;
 }
-
+#headBar {
+    background-size: cover;
+}
 .navbar {
     background-color: lightgray !important;
 }
