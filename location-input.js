@@ -37,21 +37,15 @@
 ------------------------------------------------------------------
 */
 
+// import Axios from "axios";
+
 
 document.addEventListener('DOMContentLoaded', function(){
-    let cityData = document.getElementById('mainPage').innerHTML = getCityData('Atlanta', 'Georgia', 'US');
-    return `
-        <div>${cityData}</div>
-    `
+    document.getElementById('mainPage').innerHTML = getCityData('Atlanta', 'Georgia', 'US');
 })
 
 // Pulling in axios for console runs
 // const axios = require('axios');
-
-// Declare API key and url for query
-// *key will eventually need to be stored in safer place since this is a public repo*
-const apiKey = '69355e5ac9ff4d22abfe958f18f4dbaa';
-const url = `https://api.opencagedata.com/geocode/v1/json?key=${apiKey}&pretty=1&q=`;
 
 // Variable definitions from the html
 // let city = document.getElementById().value;
@@ -64,26 +58,29 @@ const country = 'US'; */
 
 // Function to call api given city and state
 getCityData = (city, state, country) => {
+    // Declare API key and url for query
+    // * key will eventually need to be stored in safer place since this is a public repo *
+    const apiKey = '69355e5ac9ff4d22abfe958f18f4dbaa';
+    const url = `https://api.opencagedata.com/geocode/v1/json?key=${apiKey}&pretty=1&q=`;
+
     console.log(`${url}${city}%2C+${state}%2C+${country}`);
-    let cityData;
     axios.get(`${url}${city}%2C+${state}%2C+${country}`)
-        .then(function(response){
-            console.log(response.data.results);
-            cityData = JSON.stringify(response.data.results);
-        })
-        .catch(function(error) {
-            console.error(error);
-         })
-    return cityData;
+        .then(res => console.log(res.data))
+        .catch(err => console.error(err))
+
+/*     try {
+        let response = await axios.get(`${url}${city}%2C+${state}%2C+${country}`);
+        console.log(response);
+        return JSON.stringify(response);
+    } catch (error) {
+        console.error(error);
+    } */
+    
 }
 
 
-/* let p = new Promise((resolve, reject) => {
-    resolve(getCityData('Atlanta', 'Georgia', 'US'));
-})
-
-p.then(function (value) {
-    console.log('DONE: ', value);
-}).catch(function(error) {
-    console.log(error);
-}) */
+renderLocationData = (res) => {
+    return `
+        <div>${res.data}</div>
+    `
+}
