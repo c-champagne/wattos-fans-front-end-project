@@ -39,48 +39,34 @@
 
 // import Axios from "axios";
 
+// Pulling in axios for node runs
+const axios = require('axios');
 
-document.addEventListener('DOMContentLoaded', function(){
-    document.getElementById('mainPage').innerHTML = getCityData('Atlanta', 'Georgia', 'US');
-})
+// Onclick event listeners go here
 
-// Pulling in axios for console runs
-// const axios = require('axios');
 
-// Variable definitions from the html
-// let city = document.getElementById().value;
-// let state = document.getElementById().value;
-
-// For now just defining city and state as static variables
-/* const city = 'Atlanta';
-const state = 'Georgia';
-const country = 'US'; */
+const apiKey = '69355e5ac9ff4d22abfe958f18f4dbaa';
+const url = `https://api.opencagedata.com/geocode/v1/json?key=${apiKey}&pretty=1&no_annotations=1&q=`;
 
 // Function to call api given city and state
 getCityData = (city, state, country) => {
     // Declare API key and url for query
     // * key will eventually need to be stored in safer place since this is a public repo *
-    const apiKey = '69355e5ac9ff4d22abfe958f18f4dbaa';
-    const url = `https://api.opencagedata.com/geocode/v1/json?key=${apiKey}&pretty=1&q=`;
-
+    let cityData;
     console.log(`${url}${city}%2C+${state}%2C+${country}`);
     axios.get(`${url}${city}%2C+${state}%2C+${country}`)
-        .then(res => console.log(`Data is here: ${res}`))
+        .then(res => {
+            cityData = res.data.results.filter(function(city) {
+                if (city.components._type == 'city' && city.components._category == 'place') {
+                    return city.geometry;
+                }
+            })
+            console.log(cityData);
+        /* for (let i = 0; i < res.data.results.length; i++){
+                console.log(`Data is here: ${JSON.stringify(res.data.results)}`)
+            } */
+        })
         .catch(err => console.error(err))
-
-/*     try {
-        let response = await axios.get(`${url}${city}%2C+${state}%2C+${country}`);
-        console.log(response);
-        return JSON.stringify(response);
-    } catch (error) {
-        console.error(error);
-    } */
-    
 }
 
-
-renderLocationData = (res) => {
-    return `
-        <div>${res.data}</div>
-    `
-}
+getCityData('Atlanta', 'Georgia', 'US');
