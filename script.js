@@ -69,15 +69,28 @@ function forecaster(latLon) {
     axios.get(wxURL)
         .then(function(response) {
     
-            //let cloudCvr = parseInt(response.data.data.current_condition[0].cloudcover);
-    
-            //console.log(cloudCvr);
-            console.log(response);
+            let cloudCvr = parseInt(response.data.data.current_condition[0].cloudcover);
+            let moonIllum = parseInt(response.data.data.weather[0].astronomy[0].moon_illumination)
+            var weatherChoice = document.getElementById('weather');
+            if (cloudCvr < 15 && moonIllum < 15) {
+                
+                weatherChoice.innerHTML = `
+                <p>GOOD VIEWING CONDITIONS</p>
+                `
+            } else {
+                weatherChoice.innerHTML = `
+                <p> BAD VIEWING CONDITIONS</p>
+                `
+            }
+
+            console.log(cloudCvr);
+            console.log(moonIllum);
+            //console.log(response);
         })
     
     }
 
-Coordinate()
+
 
 
 // Compare cloud coverage to moonrise
