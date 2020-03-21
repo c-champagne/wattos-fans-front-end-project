@@ -49,6 +49,7 @@ const apiKey = '69355e5ac9ff4d22abfe958f18f4dbaa';
 const url = `https://api.opencagedata.com/geocode/v1/json?key=${apiKey}&pretty=1&no_annotations=1&q=`;
 
 // Function to call api given city and state
+// Right now just outputs data to the console, but will soon call the astronomy API functions
 getCityData = (city, state, country) => {
     // Declare API key and url for query
     // * key will eventually need to be stored in safer place since this is a public repo *
@@ -62,9 +63,6 @@ getCityData = (city, state, country) => {
                 }
             })
             console.log(cityData);
-        /* for (let i = 0; i < res.data.results.length; i++){
-                console.log(`Data is here: ${JSON.stringify(res.data.results)}`)
-            } */
         })
         .catch(err => console.error(err))
 }
