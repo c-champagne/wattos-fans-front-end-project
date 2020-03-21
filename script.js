@@ -41,14 +41,24 @@ function astronomyData(data) {
     Variables:
         - cloud coverage
 */
-const wxKey = 'c5a98bfa515d48ffa7aa8ce2da231083'
-const wxUrl = `https://api.weatherbit.io/v2.0/current?city=Atlanta,GA&key=${wxKey}`
-const weatherDiv = document.getElementById('weather');
-const localWeather = axios.get(wxUrl)
-    .then(function(response) {
-        console.log(response.data)
-        //weatherDiv.innerHTML = renderWX(data);
-    });
+function forecaster(latLon) {
 
+
+
+const wxKey = '0eab6e3837ad474491b152802202103';
+const wxURL = `http://api.worldweatheronline.com/premium/v1/weather.ashx?key=${wxKey}&q=${latLon}&format=json`;
+
+axios.get(wxURL)
+    .then(function(response) {
+
+        //let cloudCvr = parseInt(response.data.data.current_condition[0].cloudcover);
+
+        //console.log(cloudCvr);
+        console.log(response);
+    })
+
+}
+
+forecaster();
 
 // Compare cloud coverage to moonrise
