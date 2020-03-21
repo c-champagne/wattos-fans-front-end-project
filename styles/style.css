@@ -29,7 +29,7 @@ body {
 
   
 #bk-focus {
-        background:url(/images/high-resolution-earth_180484.jpg)  no-repeat;
+        background:url('../images/high-resolution-earth_180484.jpg')  no-repeat;
         background-size: 1500px 600px;
         color: #fff;
         font-family: Helvetica,Ubuntu Light,Arial,Sans-Serif;
