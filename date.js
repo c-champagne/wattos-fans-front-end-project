@@ -30,7 +30,33 @@ function Coordinate() {
             coordinateDatalat = response.data.location.latitude;
             cordinateDataLan = response.data.location.longitude;
             latLon = coordinateDatalat + "," + cordinateDataLan;
-            console.log(latLon)
+            
+           
+                console.log(latLon)
+                forecaster(latLon);
+
+
         })
 }
+
+function forecaster(latLon) {
+
+
+
+    const wxKey = '0eab6e3837ad474491b152802202103';
+    const wxURL = `http://api.worldweatheronline.com/premium/v1/weather.ashx?key=${wxKey}&q=${latLon}&format=json`;
+    
+    
+    axios.get(wxURL)
+        .then(function(response) {
+    
+            //let cloudCvr = parseInt(response.data.data.current_condition[0].cloudcover);
+    
+            //console.log(cloudCvr);
+            console.log(response);
+        })
+    
+    }
+
 Coordinate()
+
