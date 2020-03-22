@@ -68,7 +68,7 @@ function forecaster(latLon) {
 
     const wxKey = '0eab6e3837ad474491b152802202103';
     const wxURL = `http://api.worldweatheronline.com/premium/v1/weather.ashx?key=${wxKey}&q=${latLon}&format=json`;
-    console.log(wxURL);
+    
     
     axios.get(wxURL)
         .then(function(response) {
@@ -79,6 +79,8 @@ function forecaster(latLon) {
             var conditionsSummary = document.getElementById('conditions-summary');
             var cardHolder = document.getElementById('card-holder');
 
+            console.log(cloudCvr);
+
             // run the logic that will compare the returned cloud/moon values and then render condition summary and an image(s)
             if (cloudCvr == 0 && moonIllum < 10) {
                 
@@ -88,7 +90,7 @@ function forecaster(latLon) {
                 cardHolder.innerHTML = `
                 <img src="images/starbackground.jpg" class="card-img-top">
                 `
-            } else if (0 < cloudCvr <= 25 && 10 <= moonIllum <= 25) {
+            } else if (cloudCvr > 0 && cloudCvr < 26 && moonIllum > 0 && moonIllum < 26) {
 
                 conditionsSummary.innerHTML = `
                 <p> GOOD VIEWING CONDITIONS</p>
@@ -96,7 +98,7 @@ function forecaster(latLon) {
                 cardHolder.innerHTML = `
                 <img src="images/partly-cloudy.png" class="card-img-top">
                 `
-            } else if (cloudCvr > 25 && moonIllum > 25) {
+            } else {
 
                 conditionsSummary.innerHTML = `
                 <p> BAD VIEWING CONDITIONS</p>
@@ -104,12 +106,12 @@ function forecaster(latLon) {
                 cardHolder.innerHTML = `
                 <img src="images/overcast.png" class="card-img-top">
                 `
-            }
+            };
 
             
-        })
+        });
     
-    }
+    };
 
 
 
