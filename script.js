@@ -42,16 +42,18 @@
         - cloud coverage
 */
 
+// This is the function that queries the ipgeo API for the user's current location (lat/long parsed out of that data) based on their IP address
 function Coordinate() {
     let latLon;
     axios.get('https://api.ipgeolocation.io/astronomy?apiKey=14254d6a171646dc887404abf24bdbcc')
         .then(function(response) {
             coordinateDatalat = response.data.location.latitude;
             cordinateDataLan = response.data.location.longitude;
+            // formatted lat/long data to fit in the worldweatheronline api called in forecaster function
             latLon = coordinateDatalat + "," + cordinateDataLan;
             
            
-                console.log(latLon)
+                
                 forecaster(latLon);
 
 
@@ -59,7 +61,9 @@ function Coordinate() {
 }
 
 function forecaster(latLon) {
-
+    // The forecaster function will take the input (latLon) from the ipgeolocation app it's called within and with that info make a call to the 
+    // worldWeatherOnline API which will give the current (and future if needed) weather for that ip's location. It will also return that locations relevant 
+    // astronomy information (moon phase).
 
 
     const wxKey = '0eab6e3837ad474491b152802202103';
@@ -68,24 +72,41 @@ function forecaster(latLon) {
     
     axios.get(wxURL)
         .then(function(response) {
-    
+            // assign the cloud cover string converted to an integer to a variable cloudCvr.. do the same for moonIllum
             let cloudCvr = parseInt(response.data.data.current_condition[0].cloudcover);
             let moonIllum = parseInt(response.data.data.weather[0].astronomy[0].moon_illumination)
-            var weatherChoice = document.getElementById('weather');
-            if (cloudCvr < 15 && moonIllum < 15) {
+            // grab the needed elements on the dom to inject code into
+            var conditionsSummary = document.getElementById('conditions-summary');
+            var cardHolder = document.getElementById('card-holder');
+
+            // run the logic that will compare the returned cloud/moon values and then render condition summary and an image(s)
+            if (cloudCvr == 0 && moonIllum < 10) {
                 
-                weatherChoice.innerHTML = `
-                <p>GOOD VIEWING CONDITIONS</p>
+                conditionsSummary.innerHTML = `
+                <p>EXCELLENT DARK VIEWING CONDITIONS</p>
                 `
-            } else {
-                weatherChoice.innerHTML = `
+                cardHolder.innerHTML = `
+                <img src="images/starbackground.jpg" class="card-img-top">
+                `
+            } else if (0 < cloudCvr <= 25 && 10 <= moonIllum <= 25) {
+
+                conditionsSummary.innerHTML = `
+                <p> GOOD VIEWING CONDITIONS</p>
+                `
+                cardHolder.innerHTML = `
+                <img src="images/partly-cloudy.png" class="card-img-top">
+                `
+            } else if (cloudCvr > 25 && moonIllum > 25) {
+
+                conditionsSummary.innerHTML = `
                 <p> BAD VIEWING CONDITIONS</p>
+                `
+                cardHolder.innerHTML = `
+                <img src="images/overcast.png" class="card-img-top">
                 `
             }
 
-            console.log(cloudCvr);
-            console.log(moonIllum);
-            //console.log(response);
+            
         })
     
     }
