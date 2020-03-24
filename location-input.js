@@ -61,9 +61,12 @@ getCityData = (city, state, country) => {
                     latLon = `${city.geometry.lat},${city.geometry.lng}`
                 }
             })
+            // Call weather API
             console.log(latLon);
+            forecaster(latLon);
         })
         .catch(err => console.error(err))
 }
 
-getCityData('Atlanta', 'Georgia', 'US');
+// Run with these arguments in node for testing
+// getCityData('Atlanta', 'Georgia', 'US');
