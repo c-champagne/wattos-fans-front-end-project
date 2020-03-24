@@ -57,18 +57,28 @@ text-align: center;
 
 }
 
-#qlook{background:rgba(255, 255, 255, 0.1);
-    width: 300px;
-    height: 300px;
-    padding: 10px;
-    position: fixed;
-    text-align: center;
+#qlook{background:rgba(149, 172, 50, 0.1);
+
+    padding: 30px;
+   position: fixed;
+   grid-template-columns: fit-content(300px) fit-content(300px) 1fr;
 }
+
 
 #aboutContainer {
     padding-left: 2em;
     padding-top: 2em;
 }
+
+#center{
+   
+        margin: auto;
+        width: 50%;
+        padding: 10px;
+     
+     
+      }
+
 
 .media > img {
     width: 100px;
