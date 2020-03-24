@@ -79,7 +79,7 @@ function forecaster(latLon) {
             var conditionsSummary = document.getElementById('conditions-summary');
             var cardHolder = document.getElementById('card-holder');
 
-            console.log(cloudCvr);
+            console.log(response);
 
             // run the logic that will compare the returned cloud/moon values and then render condition summary and an image(s)
             if (cloudCvr == 0 && moonIllum < 10) {
