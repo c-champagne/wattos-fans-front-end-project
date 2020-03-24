@@ -39,7 +39,7 @@
 // import Axios from "axios";
 
 // Pulling in axios for node runs
-// const axios = require('axios');
+const axios = require('axios');
 
 // Onclick event listeners go here
 
@@ -51,16 +51,17 @@ const url = `https://api.opencagedata.com/geocode/v1/json?key=${apiKey}&pretty=1
 // Right now just outputs data to the console, but will soon call the astronomy API functions
 getCityData = (city, state, country) => {
     // * key will eventually need to be stored in safer place since this is a public repo *
-    let cityData;
+    let latLon;
     console.log(`${url}${city}%2C+${state}%2C+${country}`);
     axios.get(`${url}${city}%2C+${state}%2C+${country}`)
         .then(res => {
-            cityData = res.data.results.filter(function(city) {
+            // console.log(res.data.results[0].geometry);
+            res.data.results.map(function(city) {
                 if (city.components._type == 'city' && city.components._category == 'place') {
-                    return city.geometry;
+                    latLon = `${city.geometry.lat},${city.geometry.lng}`
                 }
             })
-            console.log(cityData);
+            console.log(latLon);
         })
         .catch(err => console.error(err))
 }
