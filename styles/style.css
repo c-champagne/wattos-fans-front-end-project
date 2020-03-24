@@ -64,6 +64,12 @@ text-align: center;
    grid-template-columns: fit-content(300px) fit-content(300px) 1fr;
 }
 
+
+#aboutContainer {
+    padding-left: 2em;
+    padding-top: 2em;
+}
+
 #center{
    
         margin: auto;
@@ -73,4 +79,9 @@ text-align: center;
      
       }
 
+
+.media > img {
+    width: 100px;
+    height: auto;
+}
 
