@@ -19,5 +19,11 @@ We will cross-reference the user's location with the state of the moon and cloud
 ### Solution:
 * We found a new API (WorldWeatherOnline) that gives us both weather and moon data, including the current moon phase and moon illumination percent.  We had previously been using Weatherbit.io's API to provide our weather data.
 
-## 
+### Forecasting Weather :
+
+* Was built in an entirely remote environment 
+## Info that we needed and why:
+* Moon Phase - needed due to the moon's reflected light drowning out stars
+* Cloud cover - needed to determine how much of the night sky was visible
+
 
