@@ -3,6 +3,7 @@
     color: white;
 }
 #headBar {
+    text-align: center;
     background-size: cover;
 }
 .navbar {
@@ -15,49 +16,39 @@ body {
     color: white;
 }
 
- .buttonCL{
+.buttonCL {
     background-color: rgb(88, 88, 92);
     border: none;
     color: white;
     padding: 15px 32px;
     text-align: center;
-   display: inline-block;
+    display: inline-block;
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
     align-content: center; 
-      }
+}
 
-  
-#bk-focus {
-        background:url('../images/high-resolution-earth_180484.jpg')  no-repeat;
-        background-size: 1500px 1000px;
-        color: #fff;
-        font-family: Helvetica,Ubuntu Light,Arial,Sans-Serif;
-        font-weight: 200;
-        font-size: 15px;
-        width: 1500px;
-        height: 1500px;
-        margin-left: auto;
-    margin-right: auto;
-        padding: 30px;
-     text-align: center;
+.main {
+    background-image: url('../images/high-resolution-earth_180484.jpg');
+    background-size: 100% 100%;
+}
+/* #main {
+    background-image: url('../images/high-resolution-earth_180484.jpg');
+} */
+
+#center {
+    color: #fff;
+    font-family: Helvetica,Ubuntu Light,Arial,Sans-Serif;
+    font-weight: 200;
+    font-size: 15px;
 }
 
 
-#qlook{background:rgba(149, 172, 50, 0.1);
-    margin-left: 100px;
-    margin-right: 100px;
+.qlook {
+    background:rgba(149, 172, 50, 0.1);
     padding: 50px;
-   position: fixed;
-
 }
-#center{
-    display:flex;
-    flex-direction: row;
-    justify-content: center;
-      }
-
 
 .media > img {
     width: 100px;
