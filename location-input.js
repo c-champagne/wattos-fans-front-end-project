@@ -35,10 +35,7 @@
 */
 
 // Pulling in axios for node runs
-// const axios = require('axios');
-
-// Run with these arguments in node for testing
-// getCityData('Atlanta', 'Georgia', 'US');
+const axios = require('axios');
 
 // Declare API key and url for query
 const apiKey = '69355e5ac9ff4d22abfe958f18f4dbaa';
@@ -60,7 +57,10 @@ getCityData = (city, state, country) => {
             })
             // Call weather API
             console.log(latLon);
-            forecaster(latLon);
+            // forecaster(latLon);
         })
         .catch(err => console.error(err))
 }
+
+// Run with these arguments in node for testing
+getCityData('Atlanta', 'Georgia', 'US');
