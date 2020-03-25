@@ -25,58 +25,46 @@ body {
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
-    align-content: center;
+    align-content: center; 
       }
 
   
 #bk-focus {
         background:url('../images/high-resolution-earth_180484.jpg')  no-repeat;
-        background-size: 1500px 600px;
+        background-size: 1500px 1000px;
         color: #fff;
         font-family: Helvetica,Ubuntu Light,Arial,Sans-Serif;
         font-weight: 200;
         font-size: 15px;
         width: 1500px;
-        height: 610px;
-        margin: auto;
-        padding: 10px;
-        resize: both;
-    text-align: center;}
-
- #tri-focus {
-    position: center;
-    top: -20px;
-    left: 30px;
-    color: #176db3;
-    font-size: 25px;
-    line-height: 1;
-    font-family: Lucida Sans Unicode,Lucida Grande,"Sans-Serif";
-    z-index: -1;
-    display: none;
-text-align: center;
-
+        height: 1500px;
+        margin-left: auto;
+    margin-right: auto;
+        padding: 30px;
+     text-align: center;
 }
+
 
 #qlook{background:rgba(149, 172, 50, 0.1);
-
-    padding: 30px;
+    margin-left: 100px;
+    margin-right: 100px;
+    padding: 50px;
    position: fixed;
-   grid-template-columns: fit-content(300px) fit-content(300px) 1fr;
+
 }
-
-
-#aboutContainer {
-    padding-left: 2em;
-    padding-top: 2em;
+.qlook2{background:rgba(149, 172, 50, 0.1);
+    height: 120px;
+    width: 120px;
+    text-align: center;
+    float: left;
+    margin: 10px;
 }
-
-#center{
+.center{
    
         margin: auto;
         width: 50%;
         padding: 10px;
-     
-     
+        
       }
 
 

@@ -4,7 +4,8 @@
 <head>
     <title>Clear Dark Sky: Find the best time for astronomy events.</title>
     <!--<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="styles/style.css">
 </head>
@@ -19,9 +20,10 @@
     <div id="navigationBar">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand">Welcome!</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
@@ -62,11 +64,9 @@
             <a onclick="Coordinate()" href="#" class="buttonCL">Current Location</a>
             <a href="#" class="buttonCL">Location Look Up</a>
         </div>
-       <!--<h1>This is the Clear Dark Sky Homepage.</h1>-->
- 
+        <!--<h1>This is the Clear Dark Sky Homepage.</h1>-->
 
         <div id="bk-focus" class="bk-ns">
-
         <div id="center">
          
           <div id="qlook"  >
@@ -76,26 +76,40 @@
             <div id="cloud-img"></div>
             <div id="moon-phase>"><!-- holder for cloud images --></div>
           <div class="container2">
-            <div class="qlook2">
-                <div class="h5">Wednesday</div>
-                <div class="h6">Clear Sky</div>
+                    <div class="qlook2">
+                        <div class="h5">Wednesday</div>
+                        <div class="h6">Clear Sky</div>
+                    </div>
+                    <br>
+                    <div class="qlook2">
+                        <div class="h5">Thursday</div>
+                        <div class="h6">Clear Sky</div>
+                    </div>
+                    <br>
+                    <div class="qlook2">
+                        <div class="h5">Friday</div>
+                        <div class="h6">Clear Sky</div>
+                    </div>
+                    <br>
+                    <div class="qlook2">
+                        <div class="h5">Saturday</div>
+                        <div class="h6">Clear Sky</div>
+                    </div>
+                    <br>
+                    <div class="qlook2">
+                        <div class="h5">Sunday</div>
+                        <div class="h6">Clear Sky</div>
+                    </div>
+                    <br>
+                    <div class="qlook2">
+                        <div class="h5">Monday</div>
+                        <div class="h6">Clear Sky</div>
+                    </div>
+
+                </div>
             </div>
-            <br>
-            <div class="qlook2">
-                <div class="h5">Thursday</div>
-                <div class="h6">Clear Sky</div>
-            </div>
-            <br>
-            <div class="qlook2">
-                <div class="h5">Friday</div>
-                <div class="h6">Clear Sky</div>
-            </div>
-            <br>
-            <div class="qlook2">
-                <div class="h5">Saturday</div>
-                <div class="h6">Clear Sky</div>
-            </div>
-            </div>
+            <div id="date">
+
             </div>
         </div>
      <div id="date">
@@ -109,5 +123,6 @@
         <!--<script src="date.js"></script> Currently not using this file, copied relevant code into script-->
         <!--<script src="weather.js"></script>-->
         <script src="script.js"></script>
-    </body>
+</body> 
+
 </html>
