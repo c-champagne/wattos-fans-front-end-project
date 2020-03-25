@@ -37,38 +37,33 @@ body {
         font-weight: 200;
         font-size: 15px;
         width: 1500px;
-        height: 1000px;
-        margin: auto;
-        padding: 10px;
-        resize: both;
-    text-align: center;
+        height: 1500px;
+        margin-left: auto;
+    margin-right: auto;
+        padding: 30px;
+     text-align: center;
 }
 
 
 #qlook{background:rgba(149, 172, 50, 0.1);
-
-    padding: 30px;
+    margin-left: 100px;
+    margin-right: 100px;
+    padding: 50px;
    position: fixed;
-   grid-template-columns: fit-content(300px) fit-content(300px) 1fr;
+
 }
 .qlook2{background:rgba(149, 172, 50, 0.1);
     height: 120px;
     width: 120px;
     text-align: center;
-    padding: 101;
-    grid-template-columns: fit-content(300px) fit-content(300px) 1fr;
-    
-  
+    float: left;
+    margin: 10px;
 }
-#center{
+.center{
    
         margin: auto;
         width: 50%;
         padding: 10px;
         
-      }
-
-    .container2 {
-        flex-wrap: row
       }
 
