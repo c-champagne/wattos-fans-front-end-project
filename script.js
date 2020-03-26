@@ -80,7 +80,7 @@ function forecaster(latLon) {
 
             // grab the needed elements on the dom to inject code into
             var conditions = document.getElementById('conditions');
-            var cloudImg = document.getElementById('cloud-img');
+            /* var cloudImg = document.getElementById('cloud-img'); Not currently being used*/
             var cloudString = document.getElementById('cloud-string');
             var tempHolder = document.getElementById('temp-holder');
             var twentyFourHrs = document.getElementById('twentyFourHrs');
@@ -101,12 +101,16 @@ function forecaster(latLon) {
                 tempHolder.innerHTML = `
                 ${currTemp}F
                 `
-                cloudImg.innerHTML = `
+                var resultBG = document.getElementById("mainPage"); /* <-- Cassie's results img render*/
+                resultBG.style.backgroundImage="url('images/clearView.jpg')";
+                
+                /* cloudImg.innerHTML = ` --Michael's original results img render--
                 <img style="height:200px;width:280px;" src="images/clearView.jpg">
                 `
                 twentyFourHrs.innerHTML = `
                 <p>EXCELLENT DARK VIEWING CONDITIONS</p>
                 `
+                ` */
             } else if (cloudCvr > 0 && cloudCvr < 26 && moonIllum > 0 && moonIllum < 26) {
 
                 conditions.innerHTML = `
@@ -118,12 +122,16 @@ function forecaster(latLon) {
                 tempHolder.innerHTML = `
                 ${currTemp}F
                 `
-                cloudImg.innerHTML = `
+                var resultBG = document.getElementById("mainPage"); /* <-- Cassie's results img render*/
+                resultBG.style.backgroundImage="url('images/midView.jpg')";
+
+                /* cloudImg.innerHTML = ` <--Michael's original results img render--
                 <img style="height:200px;width:280px;" src="images/midView.jpg">
                 `
                 twentyFourHrs.innerHTML = `
                 <p>GOOD VIEWING CONDITIONS</p>
                 `
+                ` */
             } else {
 
                 conditions.innerHTML = `
@@ -135,12 +143,16 @@ function forecaster(latLon) {
                 tempHolder.innerHTML = `
                 ${currTemp}F
                 `
-                cloudImg.innerHTML = `
+                var resultBG = document.getElementById("mainPage"); /* <-- Cassie's results img render*/
+                resultBG.style.backgroundImage="url('images/badView.jpg')";
+
+                /* cloudImg.innerHTML = ` <--Michael's original results img render--
                 <img style="height:200px;width:280px;" src="images/badView.jpg">
                 `
                 twentyFourHrs.innerHTML = `
                 <p>BAD VIEWING CONDITIONS</p>
                 `
+                ` */
             };
 
             
