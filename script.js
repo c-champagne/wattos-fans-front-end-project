@@ -79,7 +79,7 @@ function forecaster(latLon) {
             let currTemp = parseInt(response.data.data.current_condition[0].temp_F);
             // grab the needed elements on the dom to inject code into
             var conditions = document.getElementById('conditions');
-            var cloudImg = document.getElementById('cloud-img');
+            /* var cloudImg = document.getElementById('cloud-img'); Not currently being used*/
             var cloudString = document.getElementById('cloud-string');
             var tempHolder = document.getElementById('temp-holder');
 
@@ -97,9 +97,12 @@ function forecaster(latLon) {
                 tempHolder.innerHTML = `
                 ${currTemp}F
                 `
-                cloudImg.innerHTML = `
+                var resultBG = document.getElementById("mainPage"); /* <-- Cassie's results img render*/
+                resultBG.style.backgroundImage="url('images/clearView.jpg')";
+                
+                /* cloudImg.innerHTML = ` --Michael's original results img render--
                 <img style="height:200px;width:280px;" src="images/clearView.jpg">
-                `
+                ` */
             } else if (cloudCvr > 0 && cloudCvr < 26 && moonIllum > 0 && moonIllum < 26) {
 
                 conditions.innerHTML = `
@@ -111,9 +114,12 @@ function forecaster(latLon) {
                 tempHolder.innerHTML = `
                 ${currTemp}F
                 `
-                cloudImg.innerHTML = `
+                var resultBG = document.getElementById("mainPage"); /* <-- Cassie's results img render*/
+                resultBG.style.backgroundImage="url('images/midView.jpg')";
+
+                /* cloudImg.innerHTML = ` <--Michael's original results img render--
                 <img style="height:200px;width:280px;" src="images/midView.jpg">
-                `
+                ` */
             } else {
 
                 conditions.innerHTML = `
@@ -125,9 +131,12 @@ function forecaster(latLon) {
                 tempHolder.innerHTML = `
                 ${currTemp}F
                 `
-                cloudImg.innerHTML = `
+                var resultBG = document.getElementById("mainPage"); /* <-- Cassie's results img render*/
+                resultBG.style.backgroundImage="url('images/badView.jpg')";
+
+                /* cloudImg.innerHTML = ` <--Michael's original results img render--
                 <img style="height:200px;width:280px;" src="images/badView.jpg">
-                `
+                ` */
             };
 
             

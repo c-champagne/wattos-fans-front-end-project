@@ -19,18 +19,15 @@
         </div>
     </div>
     <div id="navigationBar">
-        
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="d-flex justify-content-between">
-                <a class="navbar-brand">Welcome!</a>
-                <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                    </button> -->
-            </div>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex">
+            <a class="navbar-brand d-flex">Welcome!</a>
+            <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button> -->
+            <div class="collapse navbar-collapse d-flex flex-row-reverse" id="navbarSupportedContent">
+                <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link">About Us<span class="sr-only">(current)</span></a>
+                        <a class="nav-link">About Us<span class="sr-only"></span></a>
                     </li>
                     <!-- I don't think we need these pieces of the nav bar.  Commenting out for now.-->
                     <!-- <li class="nav-item">  
@@ -60,71 +57,67 @@
             </div>
         </nav>
     </div>
-    </div>
-    <div id="date"></div>
-    <div class="main">
-        <div id="mainPage">
-            <div class="Center">
-                <a onclick="Coordinate()" href="#" class="buttonCL">Current Location</a>
-                <a href="#" class="buttonCL">Location Look Up</a>
-            </div>
-            <!--<h1>This is the Clear Dark Sky Homepage.</h1>-->
+    <div id="mainPage">
+        <div class="Center">
+            <a onclick="Coordinate()" href="#" class="buttonCL">Current Location</a>
+            <a href="#" class="buttonCL">Location Look Up</a>
+        </div>
 
-            <!--<div id="bk-focus" class="bk-ns">-->
-            <div class="container container-fluid" id="main">
-                <div class="row d-flex justify-content-center">
-                    <div id="center" class="col-8 mt-3">         
-                        <div class="row d-flex align-items-start flex-column qlook">
-                            <div id="conditions" class="h1">Night Time</div>
-                            <div id="cloud-string" class="h4">Clear Sky</div>
-                            <div id="temp-holder" class="h4"></div>
-                            <div id="cloud-img"></div>
-                            <div id="moon-phase>"><!-- holder for cloud images --></div>
-                        </div>
-                        <div class="row d-flex justify-content-around align-items-start mt-3 qlook">
-                            <div class="col-2">
-                                <div class="h5">Wednesday</div>
-                                <div class="h6">Clear Sky</div>
-                            </div>
-                            <div class="col-2">
-                                <div class="h5">Thursday</div>
-                                <div class="h6">Clear Sky</div>
-                            </div>
-                            <div class="col-2">
-                                <div class="h5">Friday</div>
-                                <div class="h6">Clear Sky</div>
-                            </div>
-                            <div class="col-2">
-                                <div class="h5">Saturday</div>
-                                <div class="h6">Clear Sky</div>
-                            </div>
-                            <div class="col-2">
-                                <div class="h5">Sunday</div>
-                                <div class="h6">Clear Sky</div>
-                            </div>
-                            <div class="col-2">
-                                <div class="h5">Monday</div>
-                                <div class="h6">Clear Sky</div>
-                            </div>
-                        </div>
-                        <div id="date">
+        <div id="bk-focus" class="bk-ns">
+        <div id="center">
+         
+          <div id="qlook"  >
+            <div id="conditions" class="h1"><!-- Condition Name Here --></div>
+            <div id="cloud-string" class="h4"><!--Cloud Coverage Here--></div>
+            <div id="temp-holder" class="h4"><!--Temp Here--></div>
+            <div id="cloud-img"><!--Currently not in use, old result img spot--></div>
+            <div id="moon-phase>"> <!--holder for cloud images--> </div>
+          <div class="container2">
+                    <div class="qlook2">
+                        <div class="h5"><!--Tomorrow--></div>
+                        <div class="h6"><!--Tomorrow's Results--></div>
+                    </div>
+                    <br>
+                    <div class="qlook2">
+                        <div class="h5"><!--Two Days Out--></div>
+                        <div class="h6"><!--Clear Sky--></div>
+                    </div>
+                    <br>
+                    <div class="qlook2">
+                        <div class="h5"><!--Friday--></div>
+                        <div class="h6"><!--Clear Sky--></div>
+                    </div>
+                    <br>
+                    <div class="qlook2">
+                        <div class="h5"><!--Saturday--></div>
+                        <div class="h6"><!--Clear Sky--></div>
+                    </div>
+                    <br>
+                    <div class="qlook2">
+                        <div class="h5"><!--Sunday--></div>
+                        <div class="h6"><!--Clear Sky--></div>
+                    </div>
+                    <br>
+                    <div class="qlook2">
+                        <div class="h5"><!--Monday--></div>
+                        <div class="h6"><!--Clear Sky--></div>
+                    </div>
 
                         </div>
                     </div>
                 </div>
             </div>
-            <!--<div id="date"></div>-->
-            <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-            <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-            <script src="background.js"></script>
-            <!--<script src="location-input.js"></script>-->
-            <!--<script src="date.js"></script> Currently not using this file, copied relevant code into script-->
-            <!--<script src="weather.js"></script>-->
-            <script src="script.js"></script>
+            </div>
         </div>
-    </div>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="background.js"></script>
+        <!--<script src="location-input.js"></script>-->
+        <!--<script src="date.js"></script> Currently not using this file, copied relevant code into script-->
+        <!--<script src="weather.js"></script>-->
+        <script src="script.js"></script>
 </body> 
 
 </html>
