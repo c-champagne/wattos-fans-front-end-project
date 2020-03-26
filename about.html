@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title></title>
+        <title>About Clear Dark Sky</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" href="styles/style.css">
     </head>
@@ -12,6 +12,7 @@
                 <p class="lead">Find the best time to view astronomy events.</p>
             </div>
         </div>
+
         <div id="navigationBar">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand">About</a>
@@ -31,32 +32,28 @@
                 </div>
             </nav>
         </div>
+
         <div id="aboutContainer">
-        <div id="aboutCDS">The purpose of Clear Dark Sky is to give users an easy way of learning about skygazing conditions based on location. This is accomplished by using two separate APIs, one that pulls location data and one that pulls weather data and astronomy info.  </div>
-        <ul class="list-unstyled">
-            <li class="media">
-              <img src="images/ipgLogo.png" class="mr-3" alt="IPGeolocation Logo">
-              <div class="media-body">
-                <h5 class="mt-0 mb-1">IP Geolocation </h5>
-                IP Geolocation is the API our team chose for acquiring the user's current location. We initially chose this API because it also came with an Astronomy API that gave us some helpful information.  
-              </div>
-            </li>
+          <div id="aboutCDS">The purpose of Clear Dark Sky is to give users an easy way to learn about stargazing conditions based on location. This is accomplished by using two separate APIs, one that pulls location data and one that pulls weather data and astronomy info.  At this time, Clear Dark Sky pulls data about your current location and combines it with your current weather to determine if viewing conditions are either excellent, good, or bad.
+          </div>
+          <ul class="list-unstyled">
+             <li class="media">
+                <img src="images/ipgLogo.png" class="mr-3" alt="IPGeolocation Logo">
+                <div class="media-body">
+                <h5 class="mt-0 mb-1"><a href="https://ipgeolocation.io/">IP Geolocation</a></h5>
+                IP Geolocation is the API our team chose for acquiring the user's current location. We initially chose this API because it also came with an Astronomy piece which we planned to also use.  Further on into production, we realized this did not have the exact data we needed.  To solve this problem, we found another API that provided more data about the moon.
+                </div>
+             </li>
             <li class="media my-4">
-              <img src="https://cdn.worldweatheronline.net/staticv150817/developer/staticv6/images/logo.png" class="mr-3" alt="World Weather Online Logo">
-              <div class="media-body">
-                <h5 class="mt-0 mb-1">World Weather Online</h5>
-                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-              </div>
+                <img src="https://cdn.worldweatheronline.net/staticv150817/developer/staticv6/images/logo.png" class="mr-3" alt="World Weather Online Logo">
+                <div class="media-body">
+                <h5 class="mt-0 mb-1"><a href="https://www.worldweatheronline.com/developer/api/">World Weather Online</a></h5>
+                World Weather Online was the second weather API our team worked with.  While our first weather API gave us great data, we discovered WWO while trying to locate an API that also gave moon phase data.  We realized we could keep things simple by switching over to using WWO for both our weather and moon data.
+                </div>
             </li>
-        </div>
-            <!-- <li class="media">
-              <img src="..." class="mr-3" alt="...">
-              <div class="media-body">
-                <h5 class="mt-0 mb-1">List-based media object</h5>
-                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-              </div>
-            </li> -->
           </ul>
+        </div>
+         <div id ="teamContainer"></div> 
         <script src="background.js"></script>
     </body>
 </html>

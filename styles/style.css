@@ -11,6 +11,8 @@
     background-color: lightgray !important;
 }
 
+
+
 #mainPage {
     height: 100vh;
     background-image:url('../images/high-resolution-earth_180484.jpg');
@@ -80,6 +82,18 @@
     justify-content: center;
       }
 
+
+#aboutContainer {
+    background-color: #090627;
+    color: whitesmoke;
+    height: 100vh;
+    padding-left: 20px;
+    padding-right: 30px;
+}
+
+#aboutCDS {
+    padding: 20px 0px 20px 0px;
+}
 .media > img {
     width: 100px;
     height: auto;
