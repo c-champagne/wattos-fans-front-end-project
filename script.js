@@ -74,7 +74,7 @@ function forecaster(latLon) {
         .then(function(response) {
             console.log(response.data);
             // assign the cloud cover string converted to an integer to a variable cloudCvr.. do the same for moonIllum
-            let cloudCvr = parseInt(response.data.data.current_condition[0].cloudcover);
+            let cloudCvr = parseInt(response.data.data.weather[0].hourly[7].cloudcover);
             let moonIllum = parseInt(response.data.data.weather[0].astronomy[0].moon_illumination)
             let cloudStringVal = response.data.data.current_condition[0].weatherDesc[0].value;
             let currTemp = parseInt(response.data.data.current_condition[0].temp_F);
