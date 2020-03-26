@@ -67,11 +67,12 @@ function forecaster(latLon) {
 
 
     const wxKey = '0eab6e3837ad474491b152802202103';
-    const wxURL = `http://api.worldweatheronline.com/premium/v1/weather.ashx?key=${wxKey}&q=${latLon}&format=json`;
+    const wxURL = `http://api.worldweatheronline.com/premium/v1/weather.ashx?key=${wxKey}&q=${latLon}&num_of_days=3&format=json`;
     
     
     axios.get(wxURL)
         .then(function(response) {
+            console.log(response.data);
             // assign the cloud cover string converted to an integer to a variable cloudCvr.. do the same for moonIllum
             let cloudCvr = parseInt(response.data.data.current_condition[0].cloudcover);
             let moonIllum = parseInt(response.data.data.weather[0].astronomy[0].moon_illumination)
