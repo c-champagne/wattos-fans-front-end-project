@@ -55,7 +55,9 @@
 
 
  #qlook{
-     background:rgba(149, 172, 50, 0.1);
+     background:rgba(79, 65, 160, 0.5);
+     padding: 25px;
+     /* background:rgba(149, 172, 50, 0.1); */
     /* margin-left: 100px;
     margin-right: 100px;
     padding: 50px; */
