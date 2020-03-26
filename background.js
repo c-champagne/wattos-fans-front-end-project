@@ -12,3 +12,4 @@ function generateBG() {
     headBar.style.backgroundImage="url("+bgList[bgNumber];
 }
 generateBG();
+
