@@ -76,37 +76,68 @@ function forecaster(latLon) {
             // assign the cloud cover string converted to an integer to a variable cloudCvr.. do the same for moonIllum
             let cloudCvr = parseInt(response.data.data.current_condition[0].cloudcover);
             let moonIllum = parseInt(response.data.data.weather[0].astronomy[0].moon_illumination)
+            let cloudStringVal = response.data.data.current_condition[0].weatherDesc[0].value;
+            let currTemp = parseInt(response.data.data.current_condition[0].temp_F);
             // grab the needed elements on the dom to inject code into
-            var conditionsSummary = document.getElementById('conditions-summary');
-            var cardHolder = document.getElementById('card-holder');
+            var conditions = document.getElementById('conditions');
+            /* var cloudImg = document.getElementById('cloud-img'); Not currently being used*/
+            var cloudString = document.getElementById('cloud-string');
+            var tempHolder = document.getElementById('temp-holder');
 
-            console.log(cloudCvr);
+            console.log(response);
 
             // run the logic that will compare the returned cloud/moon values and then render condition summary and an image(s)
             if (cloudCvr == 0 && moonIllum < 10) {
                 
-                conditionsSummary.innerHTML = `
+                conditions.innerHTML = `
                 <p>EXCELLENT DARK VIEWING CONDITIONS</p>
                 `
-                cardHolder.innerHTML = `
-                <img src="images/starbackground.jpg" class="card-img-top">
+                cloudString.innerHTML = `
+                ${cloudStringVal}
                 `
+                tempHolder.innerHTML = `
+                ${currTemp}F
+                `
+                var resultBG = document.getElementById("mainPage"); /* <-- Cassie's results img render*/
+                resultBG.style.backgroundImage="url('images/clearView.jpg')";
+                
+                /* cloudImg.innerHTML = ` --Michael's original results img render--
+                <img style="height:200px;width:280px;" src="images/clearView.jpg">
+                ` */
             } else if (cloudCvr > 0 && cloudCvr < 26 && moonIllum > 0 && moonIllum < 26) {
 
-                conditionsSummary.innerHTML = `
+                conditions.innerHTML = `
                 <p> GOOD VIEWING CONDITIONS</p>
                 `
-                cardHolder.innerHTML = `
-                <img src="images/partly-cloudy.png" class="card-img-top">
+                cloudString.innerHTML = `
+                ${cloudStringVal}
                 `
+                tempHolder.innerHTML = `
+                ${currTemp}F
+                `
+                var resultBG = document.getElementById("mainPage"); /* <-- Cassie's results img render*/
+                resultBG.style.backgroundImage="url('images/midView.jpg')";
+
+                /* cloudImg.innerHTML = ` <--Michael's original results img render--
+                <img style="height:200px;width:280px;" src="images/midView.jpg">
+                ` */
             } else {
 
-                conditionsSummary.innerHTML = `
+                conditions.innerHTML = `
                 <p> BAD VIEWING CONDITIONS</p>
                 `
-                cardHolder.innerHTML = `
-                <img src="images/overcast.png" class="card-img-top">
+                cloudString.innerHTML = `
+                ${cloudStringVal}
                 `
+                tempHolder.innerHTML = `
+                ${currTemp}F
+                `
+                var resultBG = document.getElementById("mainPage"); /* <-- Cassie's results img render*/
+                resultBG.style.backgroundImage="url('images/badView.jpg')";
+
+                /* cloudImg.innerHTML = ` <--Michael's original results img render--
+                <img style="height:200px;width:280px;" src="images/badView.jpg">
+                ` */
             };
 
             
