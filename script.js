@@ -77,11 +77,15 @@ function forecaster(latLon) {
             let moonIllum = parseInt(response.data.data.weather[0].astronomy[0].moon_illumination)
             let cloudStringVal = response.data.data.current_condition[0].weatherDesc[0].value;
             let currTemp = parseInt(response.data.data.current_condition[0].temp_F);
+
             // grab the needed elements on the dom to inject code into
             var conditions = document.getElementById('conditions');
             var cloudImg = document.getElementById('cloud-img');
             var cloudString = document.getElementById('cloud-string');
             var tempHolder = document.getElementById('temp-holder');
+            var twentyFourHrs = document.getElementById('twentyFourHrs');
+
+
 
             console.log(response);
 
@@ -100,6 +104,9 @@ function forecaster(latLon) {
                 cloudImg.innerHTML = `
                 <img style="height:200px;width:280px;" src="images/clearView.jpg">
                 `
+                twentyFourHrs.innerHTML = `
+                <p>EXCELLENT DARK VIEWING CONDITIONS</p>
+                `
             } else if (cloudCvr > 0 && cloudCvr < 26 && moonIllum > 0 && moonIllum < 26) {
 
                 conditions.innerHTML = `
@@ -114,6 +121,9 @@ function forecaster(latLon) {
                 cloudImg.innerHTML = `
                 <img style="height:200px;width:280px;" src="images/midView.jpg">
                 `
+                twentyFourHrs.innerHTML = `
+                <p>GOOD VIEWING CONDITIONS</p>
+                `
             } else {
 
                 conditions.innerHTML = `
@@ -127,6 +137,9 @@ function forecaster(latLon) {
                 `
                 cloudImg.innerHTML = `
                 <img style="height:200px;width:280px;" src="images/badView.jpg">
+                `
+                twentyFourHrs.innerHTML = `
+                <p>BAD VIEWING CONDITIONS</p>
                 `
             };
 
