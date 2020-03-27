@@ -78,11 +78,15 @@ function forecaster(latLon) {
             let moonIllum = parseInt(response.data.data.weather[0].astronomy[0].moon_illumination)
             let cloudStringVal = response.data.data.current_condition[0].weatherDesc[0].value;
             let currTemp = parseInt(response.data.data.current_condition[0].temp_F);
+
             // grab the needed elements on the dom to inject code into
             var conditions = document.getElementById('conditions');
             /* var cloudImg = document.getElementById('cloud-img'); Not currently being used*/
             var cloudString = document.getElementById('cloud-string');
             var tempHolder = document.getElementById('temp-holder');
+            var twentyFourHrs = document.getElementById('twentyFourHrs');
+
+
 
             // Turner - Setting cloudStringVal to 'Clear' if returned is 'Sunny'
             if (cloudStringVal == 'Sunny') {
@@ -125,6 +129,10 @@ function forecaster(latLon) {
                 console.log(moonPhase);
                 /* cloudImg.innerHTML = ` --Michael's original results img render--
                 <img style="height:200px;width:280px;" src="images/clearView.jpg">
+                `
+                twentyFourHrs.innerHTML = `
+                <p>EXCELLENT DARK VIEWING CONDITIONS</p>
+                `
                 ` */
             } else if (cloudCvr > 0 && cloudCvr < 26 && moonIllum > 0 && moonIllum < 26) {
 
@@ -144,6 +152,10 @@ function forecaster(latLon) {
                 console.log(moonPhase);
                 /* cloudImg.innerHTML = ` <--Michael's original results img render--
                 <img style="height:200px;width:280px;" src="images/midView.jpg">
+                `
+                twentyFourHrs.innerHTML = `
+                <p>GOOD VIEWING CONDITIONS</p>
+                `
                 ` */
             } else {
 
@@ -163,24 +175,9 @@ function forecaster(latLon) {
                 console.log(moonPhase);
                 /* cloudImg.innerHTML = ` <--Michael's original results img render--
                 <img style="height:200px;width:280px;" src="images/badView.jpg">
-                ` */
-            };
-            // Render tomorrow's results 
-            let tomCloudCvr = parseInt(response.data.data.weather[1].hourly[7].cloudcover);
-            let tomMoonIllum = parseInt(response.data.data.weather[1].astronomy[0].moon_illumination);
-            let tomorrowDiv = document.getElementById("tomorrow");
-
-
-            if (tomCloudCvr == 0 && tomMoonIllum < 10) {
-                
-                tomorrowDiv.innerHTML = `
-                <p>EXCELLENT DARK VIEWING CONDITIONS</p>
                 `
-                /* cloudString.innerHTML = `
-                ${cloudStringVal}
-                `
-                tempHolder.innerHTML = `
-                ${currTemp}F
+                twentyFourHrs.innerHTML = `
+                <p>BAD VIEWING CONDITIONS</p>
                 `
                 var resultBG = document.getElementById("mainPage"); /* <-- Cassie's results img render
                 resultBG.style.backgroundImage="url('images/clearView.jpg')";
@@ -224,68 +221,73 @@ function forecaster(latLon) {
                 <img style="height:200px;width:280px;" src="images/badView.jpg">
                 ` */
             };
-        
-            // Two days out forecast
+            // Attempt to make a for loop function
 
-            let twoDayCloudCvr = parseInt(response.data.data.weather[2].hourly[7].cloudcover);
-            let TwoDayIllum = parseInt(response.data.data.weather[2].astronomy[0].moon_illumination);
-            let TwoDayDiv = document.getElementById("twoDays");
+            for (let i = 1; i <= 2; i++) {
+                if (parseInt(response.data.data.weather[i].hourly[7].cloudcover) == 0 && parseInt(response.data.data.weather[i].astronomy[0].moon_illumination) < 10) {
+                    document.getElementById("day" + i).innerHTML = `
+                    <p>EXCELLENT DARK VIEWING CONDITIONS</p>
+                    `;
 
+                    document.getElementById("day" + i + "string").innerHTML = 
+                    response.data.data.weather[i].hourly[7].weatherDesc[0].value;
+                    
+                    /* cloudString.innerHTML = `
+                    ${cloudStringVal}
+                    `
+                    tempHolder.innerHTML = `
+                    ${currTemp}F
+                    `
+                    var resultBG = document.getElementById("mainPage"); /* <-- Cassie's results img render
+                    resultBG.style.backgroundImage="url('images/clearView.jpg')";
+                    
+                    cloudImg.innerHTML = ` --Michael's original results img render--
+                    <img style="height:200px;width:280px;" src="images/clearView.jpg">
+                    ` */
+                } else if (parseInt(response.data.data.weather[i].hourly[7].cloudcover) > 0 && parseInt(response.data.data.weather[i].hourly[7].cloudcover) < 26 && parseInt(response.data.data.weather[i].astronomy[0].moon_illumination) > 0 && parseInt(response.data.data.weather[i].astronomy[0].moon_illumination) < 26) {
 
-            if (twoDayCloudCvr == 0 && TwoDayIllum < 10) {
-                
-                TwoDayDiv.innerHTML = `
-                <p>EXCELLENT DARK VIEWING CONDITIONS</p>
-                `
-                /* cloudString.innerHTML = `
-                ${cloudStringVal}
-                `
-                tempHolder.innerHTML = `
-                ${currTemp}F
-                `
-                var resultBG = document.getElementById("mainPage"); /* <-- Cassie's results img render
-                resultBG.style.backgroundImage="url('images/clearView.jpg')";
-                
-                cloudImg.innerHTML = ` --Michael's original results img render--
-                <img style="height:200px;width:280px;" src="images/clearView.jpg">
-                ` */
-            } else if (twoDayCloudCvr > 0 && twoDayCloudCvr < 26 && TwoDayIllum > 0 && TwoDayIllum < 26) {
+                    document.getElementById("day" + i).innerHTML = `
+                    <p> GOOD VIEWING CONDITIONS</p>
+                    `;
 
-                TwoDayDiv.innerHTML = `
-                <p> GOOD VIEWING CONDITIONS</p>
-                `
-                /* cloudString.innerHTML = `
-                ${cloudStringVal}
-                `
-                tempHolder.innerHTML = `
-                ${currTemp}F
-                `
-                var resultBG = document.getElementById("mainPage"); /* <-- Cassie's results img render
-                resultBG.style.backgroundImage="url('images/midView.jpg')";
+                    document.getElementById("day" + i + "string").innerHTML = 
+                    response.data.data.weather[i].hourly[7].weatherDesc[0].value;
+                    /* cloudString.innerHTML = `
+                    ${cloudStringVal}
+                    `
+                    tempHolder.innerHTML = `
+                    ${currTemp}F
+                    `
+                    var resultBG = document.getElementById("mainPage"); /* <-- Cassie's results img render
+                    resultBG.style.backgroundImage="url('images/midView.jpg')";
 
-                /* cloudImg.innerHTML = ` <--Michael's original results img render--
-                <img style="height:200px;width:280px;" src="images/midView.jpg">
-                ` */
-            } else {
+                    /* cloudImg.innerHTML = ` <--Michael's original results img render--
+                    <img style="height:200px;width:280px;" src="images/midView.jpg">
+                    ` */
+                } else {
 
-                TwoDayDiv.innerHTML = `
-                <p> BAD VIEWING CONDITIONS</p>
-                <img src="images/badViewMini.png" style="width:auto;height:100px">
-                `
-                /* cloudString.innerHTML = `
-                ${cloudStringVal}
-                `
-                tempHolder.innerHTML = `
-                ${currTemp}F
-                `
-                var resultBG = document.getElementById("mainPage"); /* <-- Cassie's results img render
-                resultBG.style.backgroundImage="url('images/badView.jpg')";
+                    document.getElementById("day" + i).innerHTML = `
+                    <p> BAD VIEWING CONDITIONS</p>
+                    <img src="images/badView.jpg" style="width:100px;height:100px">
+                    `;
 
-                /* cloudImg.innerHTML = ` <--Michael's original results img render--
-                <img style="height:200px;width:280px;" src="images/badView.jpg">
-                ` */
-            };
-            
+                    document.getElementById("day" + i + "string").innerHTML = 
+                    response.data.data.weather[i].hourly[7].weatherDesc[0].value;
+
+                    /* cloudString.innerHTML = `
+                    ${cloudStringVal}
+                    `
+                    tempHolder.innerHTML = `
+                    ${currTemp}F
+                    `
+                    var resultBG = document.getElementById("mainPage"); /* <-- Cassie's results img render
+                    resultBG.style.backgroundImage="url('images/badView.jpg')";
+
+                    /* cloudImg.innerHTML = ` <--Michael's original results img render--
+                    <img style="height:200px;width:280px;" src="images/badView.jpg">
+                    ` */
+                };
+            }
         });
     
     };
