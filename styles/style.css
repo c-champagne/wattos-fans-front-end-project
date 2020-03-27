@@ -54,7 +54,10 @@
      text-align: center;
 } 
 
-
+#moon-phase > img {
+    width:150px;
+    height:150px;
+}
  #qlook{
      background:rgba(79, 65, 160, 0.5);
      padding: 25px;
@@ -66,8 +69,8 @@
 
 }
 .qlook2{background:rgba(149, 172, 50, 0.1);
-    height: 120px;
-    width: 120px;
+    max-height: max-content;
+    max-width: max-content;
     text-align: center;
     float: left;
     margin: 10px;
