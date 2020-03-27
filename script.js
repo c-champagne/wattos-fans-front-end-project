@@ -185,6 +185,7 @@ function forecaster(latLon) {
                 cloudImg.innerHTML = ` --Michael's original results img render--
                 <img style="height:200px;width:280px;" src="images/clearView.jpg">
                 ` */
+<<<<<<< HEAD
             }  if (tomCloudCvr > 0 && tomCloudCvr < 26 && tomMoonIllum > 0 && tomMoonIllum < 26) {
 
                 tomorrowDiv.innerHTML = `
@@ -220,6 +221,8 @@ function forecaster(latLon) {
                 /* cloudImg.innerHTML = ` <--Michael's original results img render--
                 <img style="height:200px;width:280px;" src="images/badView.jpg">
                 ` */
+=======
+>>>>>>> 42c313ae053f5b3b0393cbd4ed0a9ac16cea3f14
             };
             // Attempt to make a for loop function
 
