@@ -1,7 +1,7 @@
 # Clear Dark Sky
 
 ## Description
-The user can find astronomical events such as the sunrise, the sunset, or info about the moon and see whether or not they will have good viewing conditions based on their location, weather, and the state of the moon.
+The user can see whether or not they will have good stargazing viewing conditions based on their location, weather, and the state of the moon.
 
 This project was completed by an entirely remote team due to the COVID-19 situation.  Team members met virtually using Zoom Meetings to discuss the project and work on code together.
 
@@ -32,7 +32,5 @@ Using if/else statements, we determine if the current moon illumination and clou
 * We realized by pulling current weather, it may not be an accurate representation if the user is checking during the day and the weather is different at night.
 
 ### Solution:
-
-
-
+* The weather API returns forecasted data as well.  Initially, we were pulling the data under "current weather."  We changed our variables to pull the data from the hourly forecast instead for 9:00 PM to provide a more accurate representation of tonight's weather.
 
