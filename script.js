@@ -67,13 +67,14 @@ function forecaster(latLon) {
 
 
     const wxKey = '0eab6e3837ad474491b152802202103';
-    const wxURL = `http://api.worldweatheronline.com/premium/v1/weather.ashx?key=${wxKey}&q=${latLon}&format=json`;
+    const wxURL = `http://api.worldweatheronline.com/premium/v1/weather.ashx?key=${wxKey}&q=${latLon}&num_of_days=3&format=json`;
     
     
     axios.get(wxURL)
         .then(function(response) {
+            console.log(response.data);
             // assign the cloud cover string converted to an integer to a variable cloudCvr.. do the same for moonIllum
-            let cloudCvr = parseInt(response.data.data.current_condition[0].cloudcover);
+            let cloudCvr = parseInt(response.data.data.weather[0].hourly[7].cloudcover);
             let moonIllum = parseInt(response.data.data.weather[0].astronomy[0].moon_illumination)
             let cloudStringVal = response.data.data.current_condition[0].weatherDesc[0].value;
             let currTemp = parseInt(response.data.data.current_condition[0].temp_F);
@@ -152,6 +153,65 @@ function forecaster(latLon) {
                 twentyFourHrs.innerHTML = `
                 <p>BAD VIEWING CONDITIONS</p>
                 `
+                ` */
+            };
+            // Render tomorrow's results 
+            let tomCloudCvr = parseInt(response.data.data.weather[1].hourly[7].cloudcover);
+            let tomMoonIllum = parseInt(response.data.data.weather[1].astronomy[0].moon_illumination);
+            let tomorrowDiv = document.getElementById("tomorrow");
+
+
+            if (tomCloudCvr == 0 && tomMoonIllum < 10) {
+                
+                tomorrowDiv.innerHTML = `
+                <p>EXCELLENT DARK VIEWING CONDITIONS</p>
+                `
+                /* cloudString.innerHTML = `
+                ${cloudStringVal}
+                `
+                tempHolder.innerHTML = `
+                ${currTemp}F
+                `
+                var resultBG = document.getElementById("mainPage"); /* <-- Cassie's results img render
+                resultBG.style.backgroundImage="url('images/clearView.jpg')";
+                
+                cloudImg.innerHTML = ` --Michael's original results img render--
+                <img style="height:200px;width:280px;" src="images/clearView.jpg">
+                ` */
+            } else if (tomCloudCvr > 0 && tomCloudCvr < 26 && tomMoonIllum > 0 && tomMoonIllum < 26) {
+
+                tomorrowDiv.innerHTML = `
+                <p> GOOD VIEWING CONDITIONS</p>
+                `
+                /* cloudString.innerHTML = `
+                ${cloudStringVal}
+                `
+                tempHolder.innerHTML = `
+                ${currTemp}F
+                `
+                var resultBG = document.getElementById("mainPage"); /* <-- Cassie's results img render
+                resultBG.style.backgroundImage="url('images/midView.jpg')";
+
+                /* cloudImg.innerHTML = ` <--Michael's original results img render--
+                <img style="height:200px;width:280px;" src="images/midView.jpg">
+                ` */
+            } else {
+
+                tomorrowDiv.innerHTML = `
+                <p> BAD VIEWING CONDITIONS</p>
+                <img src="images/badView.jpg" style="width:100px;height:100px">
+                `
+                /* cloudString.innerHTML = `
+                ${cloudStringVal}
+                `
+                tempHolder.innerHTML = `
+                ${currTemp}F
+                `
+                var resultBG = document.getElementById("mainPage"); /* <-- Cassie's results img render
+                resultBG.style.backgroundImage="url('images/badView.jpg')";
+
+                /* cloudImg.innerHTML = ` <--Michael's original results img render--
+                <img style="height:200px;width:280px;" src="images/badView.jpg">
                 ` */
             };
 
