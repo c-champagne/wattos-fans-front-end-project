@@ -12,17 +12,12 @@
     background-color: lightgray !important;
 }
 
-
-
 #mainPage {
     height: 100vh;
     background-image:url('../images/high-resolution-earth_180484.jpg');
     background-size: cover;
-    /*background-color: #090627; 
-    background-color: #0f0a4a; Making background a little bit darker */
     color: white;
 }
-
 
  .buttonCL{
     background-color: rgb(88, 88, 92);
@@ -36,72 +31,78 @@
     cursor: pointer;
     align-content: center; 
 }
-
-  
- #bk-focus {
-/*         --Moved Background Image to mainPage div--
-        background:url('../images/high-resolution-earth_180484.jpg')  no-repeat;
-        background-size: 1500px 1000px;*/
+ 
+ #bk-focus { /*This styles the contents of the forecast block*/
         color: #fff;
         font-family: Helvetica,Ubuntu Light,Arial,Sans-Serif;
         font-weight: 200;
         font-size: 15px;
-        /* width: 1500px;
-        height: 1500px;
-        margin-left: auto;
-    margin-right: auto; */
-        /* padding: 30px; */
-     text-align: center;
+        text-align: center;
 } 
 
-#moon-phase > img {
+#moon-phase > img { /*Set moon size in forecast block*/
     width:150px;
     height:150px;
 }
- #qlook{
+
+ #qlook{ /*This is the forecast block*/
      background:rgba(79, 65, 160, 0.5);
      padding: 25px;
-     /* background:rgba(149, 172, 50, 0.1); */
-    /* margin-left: 100px;
-    margin-right: 100px;
-    padding: 50px; */
-   /* position: fixed; */
-
 }
-.qlook2{background:rgba(149, 172, 50, 0.1);
+
+#center{ /*This centers the forecast block*/
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.container2 { /*This centers the tomorrow and two day out blocks*/
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.qlook2{ /*These are the tomorrow and two day out blocks*/
+    background:rgba(149, 172, 50, 0.1); 
     max-height: max-content;
     max-width: max-content;
     text-align: center;
     float: left;
     margin: 10px;
+    padding: 10px;
 }
-.center{
-    background-color: #090627;
-    /* margin: auto; */
-    /* width: 100vw; */
-    padding: 30px;
-    
-  }
-#center{
-    display:flex;
-    flex-direction: row;
-    justify-content: center;
-      }
-
 
 #aboutContainer {
     background-color: #090627;
     color: whitesmoke;
     height: 100vh;
     padding-left: 20px;
-    padding-right: 30px;
+    padding-right: 30px;   
 }
 
-#aboutCDS {
-    padding: 20px 0px 20px 30px;
-}
-.media > img {
+.media > img { /*Sets image size of API logos on about page*/
     width: 100px;
     height: auto;
 }
 
+#teamBlurb {
+    color: whitesmoke;
+}
+#aboutCDS { 
+    padding: 20px 0px 20px 30px;
+}
+
+.center{ /*This sets the background and padding for the team page*/
+    background-color: #090627;
+    padding: 30px; 
+}
+.containerC2 { /*This makes the team member cards the same height*/
+    display: flex;
+    flex-direction: row;
+}
+
+.row {              /*This centers the team member cards*/
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
