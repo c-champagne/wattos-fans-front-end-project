@@ -185,6 +185,8 @@ function forecaster(latLon) {
             let tomCloudCvr = parseInt(response.data.data.weather[1].hourly[7].cloudcover);
             let tomMoonIllum = parseInt(response.data.data.weather[1].astronomy[0].moon_illumination);
             let tomorrowDiv = document.getElementById("tomorrow");
+            let tomorrowString = document.getElementById("tomorrow-string");
+            let tomorrowStringVal = response.data.data.weather[1].hourly[7].weatherDesc[0].value;
 
 
             if (tomCloudCvr == 0 && tomMoonIllum < 10) {
@@ -192,6 +194,11 @@ function forecaster(latLon) {
                 tomorrowDiv.innerHTML = `
                 <p>EXCELLENT DARK VIEWING CONDITIONS</p>
                 `
+                tomorrowString.innerHTML = `
+                ${tomorrowStringVal}
+                
+                `
+
                 /* cloudString.innerHTML = `
                 ${cloudStringVal}
                 `
@@ -208,6 +215,10 @@ function forecaster(latLon) {
 
                 tomorrowDiv.innerHTML = `
                 <p> GOOD VIEWING CONDITIONS</p>
+                `
+                tomorrowString.innerHTML = `
+                ${tomorrowStringVal}
+                
                 `
                 /* cloudString.innerHTML = `
                 ${cloudStringVal}
@@ -226,6 +237,10 @@ function forecaster(latLon) {
                 tomorrowDiv.innerHTML = `
                 <p> BAD VIEWING CONDITIONS</p>
                 <img src="images/badView.jpg" style="width:100px;height:100px">
+                `
+                tomorrowString.innerHTML = `
+                ${tomorrowStringVal}
+                
                 `
                 /* cloudString.innerHTML = `
                 ${cloudStringVal}
@@ -246,12 +261,16 @@ function forecaster(latLon) {
             let twoDayCloudCvr = parseInt(response.data.data.weather[2].hourly[7].cloudcover);
             let TwoDayIllum = parseInt(response.data.data.weather[2].astronomy[0].moon_illumination);
             let TwoDayDiv = document.getElementById("twoDays");
-
+            let twoDayString = document.getElementById('twoDay-string');
+            let twoDayStringVal = response.data.data.weather[2].hourly[7].weatherDesc[0].value;
 
             if (twoDayCloudCvr == 0 && TwoDayIllum < 10) {
                 
                 TwoDayDiv.innerHTML = `
                 <p>EXCELLENT DARK VIEWING CONDITIONS</p>
+                `
+                twoDayString.innerHTML = `
+                ${twoDayStringVal}
                 `
                 /* cloudString.innerHTML = `
                 ${cloudStringVal}
@@ -270,6 +289,9 @@ function forecaster(latLon) {
                 TwoDayDiv.innerHTML = `
                 <p> GOOD VIEWING CONDITIONS</p>
                 `
+                twoDayString.innerHTML = `
+                ${twoDayStringVal}
+                `
                 /* cloudString.innerHTML = `
                 ${cloudStringVal}
                 `
@@ -287,6 +309,9 @@ function forecaster(latLon) {
                 TwoDayDiv.innerHTML = `
                 <p> BAD VIEWING CONDITIONS</p>
                 <img src="images/badView.jpg" style="width:100px;height:100px">
+                `
+                twoDayString.innerHTML = `
+                ${twoDayStringVal}
                 `
                 /* cloudString.innerHTML = `
                 ${cloudStringVal}
