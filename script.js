@@ -185,8 +185,7 @@ function forecaster(latLon) {
                 cloudImg.innerHTML = ` --Michael's original results img render--
                 <img style="height:200px;width:280px;" src="images/clearView.jpg">
                 ` */
-            } 
-            
+            };
             // Attempt to make a for loop function
 
             for (let i = 1; i <= 2; i++) {
