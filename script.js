@@ -187,42 +187,6 @@ function forecaster(latLon) {
                 ` */
             } 
             
-            if (tomCloudCvr > 0 && tomCloudCvr < 26 && tomMoonIllum > 0 && tomMoonIllum < 26) {
-
-                tomorrowDiv.innerHTML = `
-                <p> GOOD VIEWING CONDITIONS</p>
-                `
-                /* cloudString.innerHTML = `
-                ${cloudStringVal}
-                `
-                tempHolder.innerHTML = `
-                ${currTemp}F
-                `
-                var resultBG = document.getElementById("mainPage"); /* <-- Cassie's results img render
-                resultBG.style.backgroundImage="url('images/midView.jpg')";
-
-                /* cloudImg.innerHTML = ` <--Michael's original results img render--
-                <img style="height:200px;width:280px;" src="images/midView.jpg">
-                ` */
-            } else {
-
-                tomorrowDiv.innerHTML = `
-                <p> BAD VIEWING CONDITIONS</p>
-                <img src="images/badViewMini.png" style="width:auto;height:100px">
-                `
-                /* cloudString.innerHTML = `
-                ${cloudStringVal}
-                `
-                tempHolder.innerHTML = `
-                ${currTemp}F
-                `
-                var resultBG = document.getElementById("mainPage"); /* <-- Cassie's results img render
-                resultBG.style.backgroundImage="url('images/badView.jpg')";
-
-                /* cloudImg.innerHTML = ` <--Michael's original results img render--
-                <img style="height:200px;width:280px;" src="images/badView.jpg">
-                ` */
-            };
             // Attempt to make a for loop function
 
             for (let i = 1; i <= 2; i++) {
