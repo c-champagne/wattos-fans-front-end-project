@@ -73,10 +73,10 @@
     margin: 10px;
 }
 .center{
-   
-    margin: auto;
-    width: 50%;
-    padding: 10px;
+    background-color: #090627;
+    /* margin: auto; */
+    /* width: 100vw; */
+    padding: 30px;
     
   }
 #center{
@@ -95,7 +95,7 @@
 }
 
 #aboutCDS {
-    padding: 20px 0px 20px 0px;
+    padding: 20px 0px 20px 30px;
 }
 .media > img {
     width: 100px;
