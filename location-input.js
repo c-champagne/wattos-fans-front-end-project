@@ -29,19 +29,13 @@
 ------------------------------------------------------------------
 
     Current Issues:
-    - Rendering results to the screen
-        - Need a promise for this
-    - Return lat/long of current IP
+    - move all of this to script.js
 
 ------------------------------------------------------------------
 */
 
-// import Axios from "axios";
-
 // Pulling in axios for node runs
-// const axios = require('axios');
-
-// Onclick event listeners go here
+const axios = require('axios');
 
 // Declare API key and url for query
 const apiKey = '69355e5ac9ff4d22abfe958f18f4dbaa';
@@ -63,10 +57,10 @@ getCityData = (city, state, country) => {
             })
             // Call weather API
             console.log(latLon);
-            forecaster(latLon);
+            // forecaster(latLon);
         })
         .catch(err => console.error(err))
 }
 
 // Run with these arguments in node for testing
-// getCityData('Atlanta', 'Georgia', 'US');
+getCityData('Atlanta', 'Georgia', 'US');
