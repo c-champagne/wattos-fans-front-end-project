@@ -21,6 +21,13 @@ In order to determine viewing conditions, we needed to decide on what factors we
 
 Using if/else statements, we determine if the current moon illumination and cloud coverage fall into either "excellent", "good", or "bad" viewing conditions.  This result is returned to the user on the website along with an image of the sky that matches their result.
 
+## Design Elements
+Clear Dark Sky uses primarily Bootstrap and Flexbox styling.  The landing page consists of a "jumbotron", a navigation bar, and a main div that holds the results containers.  The jumbotron randomly generates one of five space images for the background.  
+
+The background of the main div is initially an image of the earth.  Once the user generates their stargazing forecast, the background will change to match their result: a clear night sky (excellent), a partly cloudy night sky (good), or a cloudy sky with a full moon (bad).  
+
+There is an About Us page that explains and links to the APIs used.  The user can also access the Team page to learn a little more about the team that built the site.  The Team page uses Bootstrap elements to display each team member in a card with their name and what type of work they performed on the project.
+
 ## Problems
 ### Getting Appropriate Moon Data:
 * We realized the IPGeolocation API did not give us enough info to easily determine the moon's state/phase.  We need this info in order to determine if the moon is too bright for good stargazing conditions.
