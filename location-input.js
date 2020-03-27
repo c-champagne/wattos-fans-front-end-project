@@ -22,7 +22,7 @@
         - key - API key
         - q - query parameters
         - pretty - more readable formats
-    
+
     Example Request for Carapicuiba, Brasil
     - https://api.opencagedata.com/geocode/v1/json?q=Rua+Cafel%C3%A2ndia%2C+Carapicu%C3%ADba%2C+Brasil&key=YOUR-API-KEY&pretty=1
 
@@ -51,11 +51,11 @@ getCityData = (city, state, country) => {
         .then(res => {
             // console.log(res.data.results[0].geometry);
             res.data.results.map(function(city) {
-                if (city.components._type == 'city' && city.components._category == 'place') {
-                    latLon = `${city.geometry.lat},${city.geometry.lng}`
-                }
-            })
-            // Call weather API
+                    if (city.components._type == 'city' && city.components._category == 'place') {
+                        latLon = `${city.geometry.lat},${city.geometry.lng}`
+                    }
+                })
+                // Call weather API
             console.log(latLon);
             // forecaster(latLon);
         })
