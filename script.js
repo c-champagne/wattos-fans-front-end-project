@@ -192,6 +192,7 @@ function forecaster(latLon) {
                 if (parseInt(response.data.data.weather[i].hourly[7].cloudcover) == 0 && parseInt(response.data.data.weather[i].astronomy[0].moon_illumination) < 10) {
                     document.getElementById("day" + i).innerHTML = `
                     <p>EXCELLENT DARK VIEWING CONDITIONS</p>
+                    <img src="images/clearViewMini.png" style="width:100px;height:auto">
                     `;
 
                     document.getElementById("day" + i + "string").innerHTML = 
@@ -213,6 +214,7 @@ function forecaster(latLon) {
 
                     document.getElementById("day" + i).innerHTML = `
                     <p> GOOD VIEWING CONDITIONS</p>
+                    <img src="images/midViewMini.png" style="width:100px;height:auto">
                     `;
 
                     document.getElementById("day" + i + "string").innerHTML = 
@@ -233,7 +235,7 @@ function forecaster(latLon) {
 
                     document.getElementById("day" + i).innerHTML = `
                     <p> BAD VIEWING CONDITIONS</p>
-                    <img src="images/badView.jpg" style="width:100px;height:100px">
+                    <img src="images/badViewMini.png" style="width:100px;height:auto">
                     `;
 
                     document.getElementById("day" + i + "string").innerHTML = 
