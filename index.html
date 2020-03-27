@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Clear Dark Sky: Find the best time for astronomy events.</title>
     <!--<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="styles/style.css">
 </head>
@@ -33,32 +32,42 @@
     <div id="mainPage">
         <div class="Center">
             <a onclick="Coordinate()" href="#" class="buttonCL">Current Location</a>
-            <a href="#" class="buttonCL">Location Look Up</a>
+            <!-- <a href="#" class="buttonCL">Location Look Up</a> -->
         </div>
 
         <div id="bk-focus" class="bk-ns">
-        <div id="center">
-         
-          <div id="qlook"  >
-            <div id="conditions" class="h1"><!-- Condition Name Here --></div>
-            <div id="cloud-string" class="h4"><!--Cloud Coverage Here--></div>
-            <div id="temp-holder" class="h4"><!--Temp Here--></div>
-            <div id="cloud-img"><!--Currently not in use, old result img spot--></div>
-            <div id="moon-phase"> <!--holder for cloud images--> </div>
-                <div class="container2">
-                    <div class="qlook2">
-                        <div class="h5">Tomorrow</div>
-                        <div id="tomorrow-string"></div>
-                        <div class="h6" id="tomorrow">Tomorrow's Results</div>
+            <div id="center">
+
+                <div id="qlook">
+                    <div id="conditions" class="h1">
+                        <!-- Condition Name Here -->
                     </div>
-                    <br>
-                    <div class="qlook2">
-                        <div class="h5">Two Days Out</div>
-                        <div id="twoDay-string"></div>
-                        <div class="h6" id="twoDays">Results</div>
+                    <div id="cloud-string" class="h4">
+                        <!--Cloud Coverage Here-->
+                    </div>
+                    <div id="temp-holder" class="h4">
+                        <!--Temp Here-->
+                    </div>
+                    <div id="cloud-img">
+                        <!--Currently not in use, old result img spot-->
+                    </div>
+                    <div id="moon-phase">
+                        <!--holder for cloud images-->
+                    </div>
+                    <div class="container2">
+                        <div class="qlook2">
+                            <div class="h5">Tomorrow</div>
+                            <div id="tomorrow-string"></div>
+                            <div class="h6" id="tomorrow">Tomorrow's Results</div>
+                        </div>
+                        <br>
+                        <div class="qlook2">
+                            <div class="h5">Two Days Out</div>
+                            <div id="twoDay-string"></div>
+                            <div class="h6" id="twoDays">Results</div>
+                        </div>
                     </div>
                 </div>
-            </div>
             </div>
         </div>
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -70,6 +79,6 @@
         <!--<script src="date.js"></script> Currently not using this file, copied relevant code into script-->
         <!--<script src="weather.js"></script>-->
         <script src="script.js"></script>
-</body> 
+</body>
 
 </html>
