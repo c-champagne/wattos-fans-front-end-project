@@ -84,8 +84,28 @@ function forecaster(latLon) {
             var cloudString = document.getElementById('cloud-string');
             var tempHolder = document.getElementById('temp-holder');
 
+            // Turner - Setting cloudStringVal to 'Clear' if returned is 'Sunny'
+            if (cloudStringVal == 'Sunny') {
+                cloudStringVal = 'Clear';
+            }
+
+            console.log(cloudStringVal);
             console.log(response);
 
+            // Turner - setting proper moon image based on moonIllum
+            let moonImage;
+            if (moonIllum < 11) {
+                moonImage = 'images/new-moon.png';
+            } else if (moonIllum < 26) {
+                moonImage = 'images/waning-crescent.png';
+            } else if (moonIllum < 76) {
+                moonImage = 'images/three-quarter.jpg';
+            } else if (moonIllum < 101) {
+                moonImage = 'images/full-moon.png';
+            }
+
+            console.log(moonImage);
+            let moonPhase;
             // run the logic that will compare the returned cloud/moon values and then render condition summary and an image(s)
             if (cloudCvr == 0 && moonIllum < 10) {
                 
@@ -101,6 +121,8 @@ function forecaster(latLon) {
                 var resultBG = document.getElementById("mainPage"); /* <-- Cassie's results img render*/
                 resultBG.style.backgroundImage="url('images/clearView.jpg')";
                 
+                moonPhase = document.getElementById('moon-phase').innerHTML = `<img src="${moonImage}">`;
+                console.log(moonPhase);
                 /* cloudImg.innerHTML = ` --Michael's original results img render--
                 <img style="height:200px;width:280px;" src="images/clearView.jpg">
                 ` */
@@ -118,6 +140,8 @@ function forecaster(latLon) {
                 var resultBG = document.getElementById("mainPage"); /* <-- Cassie's results img render*/
                 resultBG.style.backgroundImage="url('images/midView.jpg')";
 
+                moonPhase = document.getElementById('moon-phase').innerHTML = `<img src="${moonImage}">`;
+                console.log(moonPhase);
                 /* cloudImg.innerHTML = ` <--Michael's original results img render--
                 <img style="height:200px;width:280px;" src="images/midView.jpg">
                 ` */
@@ -135,6 +159,8 @@ function forecaster(latLon) {
                 var resultBG = document.getElementById("mainPage"); /* <-- Cassie's results img render*/
                 resultBG.style.backgroundImage="url('images/badView.jpg')";
 
+                moonPhase = document.getElementById('moon-phase').innerHTML = `<img src="${moonImage}">`;
+                console.log(moonPhase);
                 /* cloudImg.innerHTML = ` <--Michael's original results img render--
                 <img style="height:200px;width:280px;" src="images/badView.jpg">
                 ` */
