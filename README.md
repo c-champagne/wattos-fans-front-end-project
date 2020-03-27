@@ -29,6 +29,9 @@ Using if/else statements, we determine if the current moon illumination and clou
 * We found a new API (WorldWeatherOnline) that gives us both weather and moon data, including the current moon phase and moon illumination percent.  We had previously been using Weatherbit.io's API to provide our weather data.
 
 ### Forecasting Weather :
+* We realized by pulling current weather, it may not be an accurate representation if the user is checking during the day and the weather is different at night.
+
+### Solution:
 
 
 
