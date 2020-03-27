@@ -327,6 +327,62 @@ function forecaster(latLon) {
                 ` */
             };
             
+            // Attempt to make a map function
+
+            for (let i = 1; i <= 2; i++) {
+                if (parseInt(response.data.data.weather[i].hourly[7].cloudcover) == 0 && parseInt(response.data.data.weather[i].astronomy[0].moon_illumination) < 10) {
+                    document.getElementById("day" + i).innerHTML = `
+                    <p>EXCELLENT DARK VIEWING CONDITIONS</p>
+                    `
+                    /* cloudString.innerHTML = `
+                    ${cloudStringVal}
+                    `
+                    tempHolder.innerHTML = `
+                    ${currTemp}F
+                    `
+                    var resultBG = document.getElementById("mainPage"); /* <-- Cassie's results img render
+                    resultBG.style.backgroundImage="url('images/clearView.jpg')";
+                    
+                    cloudImg.innerHTML = ` --Michael's original results img render--
+                    <img style="height:200px;width:280px;" src="images/clearView.jpg">
+                    ` */
+                } else if (parseInt(response.data.data.weather[i].hourly[7].cloudcover) > 0 && parseInt(response.data.data.weather[i].hourly[7].cloudcover) < 26 && parseInt(response.data.data.weather[i].astronomy[0].moon_illumination) > 0 && parseInt(response.data.data.weather[i].astronomy[0].moon_illumination) < 26) {
+
+                    document.getElementById("day" + i).innerHTML = `
+                    <p> GOOD VIEWING CONDITIONS</p>
+                    `
+                    /* cloudString.innerHTML = `
+                    ${cloudStringVal}
+                    `
+                    tempHolder.innerHTML = `
+                    ${currTemp}F
+                    `
+                    var resultBG = document.getElementById("mainPage"); /* <-- Cassie's results img render
+                    resultBG.style.backgroundImage="url('images/midView.jpg')";
+
+                    /* cloudImg.innerHTML = ` <--Michael's original results img render--
+                    <img style="height:200px;width:280px;" src="images/midView.jpg">
+                    ` */
+                } else {
+
+                    document.getElementById("day" + i).innerHTML = `
+                    <p> BAD VIEWING CONDITIONS</p>
+                    <img src="images/badView.jpg" style="width:100px;height:100px">
+                    `
+                    /* cloudString.innerHTML = `
+                    ${cloudStringVal}
+                    `
+                    tempHolder.innerHTML = `
+                    ${currTemp}F
+                    `
+                    var resultBG = document.getElementById("mainPage"); /* <-- Cassie's results img render
+                    resultBG.style.backgroundImage="url('images/badView.jpg')";
+
+                    /* cloudImg.innerHTML = ` <--Michael's original results img render--
+                    <img style="height:200px;width:280px;" src="images/badView.jpg">
+                    ` */
+                };
+            }
         });
     
     };
