@@ -209,7 +209,7 @@ function forecaster(latLon) {
 
                 tomorrowDiv.innerHTML = `
                 <p> BAD VIEWING CONDITIONS</p>
-                <img src="images/badView.jpg" style="width:100px;height:100px">
+                <img src="images/badViewMini.png" style="width:auto;height:100px">
                 `
                 /* cloudString.innerHTML = `
                 ${cloudStringVal}
@@ -270,7 +270,7 @@ function forecaster(latLon) {
 
                 TwoDayDiv.innerHTML = `
                 <p> BAD VIEWING CONDITIONS</p>
-                <img src="images/badView.jpg" style="width:100px;height:100px">
+                <img src="images/badViewMini.png" style="width:auto;height:100px">
                 `
                 /* cloudString.innerHTML = `
                 ${cloudStringVal}
