@@ -185,7 +185,9 @@ function forecaster(latLon) {
                 cloudImg.innerHTML = ` --Michael's original results img render--
                 <img style="height:200px;width:280px;" src="images/clearView.jpg">
                 ` */
-            } else if (tomCloudCvr > 0 && tomCloudCvr < 26 && tomMoonIllum > 0 && tomMoonIllum < 26) {
+            } 
+            
+            if (tomCloudCvr > 0 && tomCloudCvr < 26 && tomMoonIllum > 0 && tomMoonIllum < 26) {
 
                 tomorrowDiv.innerHTML = `
                 <p> GOOD VIEWING CONDITIONS</p>
