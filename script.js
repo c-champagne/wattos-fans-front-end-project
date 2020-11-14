@@ -5,7 +5,6 @@
             astronomy information (moon phase).
 */
 
-
 // Query the ipgeo API for the user's current location (lat/long parsed out of that data) based on their IP address
 function Coordinate() {
     let latLon;
